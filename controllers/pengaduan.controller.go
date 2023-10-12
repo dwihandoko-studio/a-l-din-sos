@@ -305,7 +305,7 @@ func PostPengaduan(c echo.Context) error {
 			newfilenamepengaduan1 := helpers.GenerateFilename("PENGADUAN-1" + *result.Nik)
 			filenamepengaduan1 = fmt.Sprintf("%s%s", newfilenamepengaduan1, filepath.Ext(filepengaduan1.Filename))
 
-			fileLocationpengaduan1 = filepath.Join(dir, "uploads/pengaduan", filenamepengaduan1)
+			fileLocationpengaduan1 = filepath.Join(dir, "uploads/aduan", filenamepengaduan1)
 			targetFilepengaduan1, err := os.OpenFile(fileLocationpengaduan1, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -334,7 +334,7 @@ func PostPengaduan(c echo.Context) error {
 			newfilenamepengaduan2 := helpers.GenerateFilename("PENGADUAN-2" + *result.Nik)
 			filenamepengaduan2 = fmt.Sprintf("%s%s", newfilenamepengaduan2, filepath.Ext(filepengaduan2.Filename))
 
-			fileLocationpengaduan2 = filepath.Join(dir, "uploads/pengaduan", filenamepengaduan2)
+			fileLocationpengaduan2 = filepath.Join(dir, "uploads/aduan", filenamepengaduan2)
 			targetFilepengaduan2, err := os.OpenFile(fileLocationpengaduan2, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -363,7 +363,7 @@ func PostPengaduan(c echo.Context) error {
 			newfilenamepengaduan3 := helpers.GenerateFilename("PENGADUAN-3" + *result.Nik)
 			filenamepengaduan3 = fmt.Sprintf("%s%s", newfilenamepengaduan3, filepath.Ext(filepengaduan3.Filename))
 
-			fileLocationpengaduan3 = filepath.Join(dir, "uploads/pengaduan", filenamepengaduan3)
+			fileLocationpengaduan3 = filepath.Join(dir, "uploads/aduan", filenamepengaduan3)
 			targetFilepengaduan3, err := os.OpenFile(fileLocationpengaduan3, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -392,7 +392,7 @@ func PostPengaduan(c echo.Context) error {
 			newfilenamepengaduan4 := helpers.GenerateFilename("PENGADUAN-4" + *result.Nik)
 			filenamepengaduan4 = fmt.Sprintf("%s%s", newfilenamepengaduan4, filepath.Ext(filepengaduan4.Filename))
 
-			fileLocationpengaduan4 = filepath.Join(dir, "uploads/pengaduan", filenamepengaduan4)
+			fileLocationpengaduan4 = filepath.Join(dir, "uploads/aduan", filenamepengaduan4)
 			targetFilepengaduan4, err := os.OpenFile(fileLocationpengaduan4, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -421,7 +421,7 @@ func PostPengaduan(c echo.Context) error {
 			newfilenamepengaduan5 := helpers.GenerateFilename("PENGADUAN-5" + *result.Nik)
 			filenamepengaduan5 = fmt.Sprintf("%s%s", newfilenamepengaduan5, filepath.Ext(filepengaduan5.Filename))
 
-			fileLocationpengaduan5 = filepath.Join(dir, "uploads/pengaduan", filenamepengaduan5)
+			fileLocationpengaduan5 = filepath.Join(dir, "uploads/aduan", filenamepengaduan5)
 			targetFilepengaduan5, err := os.OpenFile(fileLocationpengaduan5, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())

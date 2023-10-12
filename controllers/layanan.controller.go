@@ -205,7 +205,7 @@ func PostLayananPbi(c echo.Context) error {
 			newfilenamelainnya := helpers.GenerateFilename("LAINNYA" + *result.Nik)
 			filenamelainnya = fmt.Sprintf("%s%s", newfilenamelainnya, filepath.Ext(filelainnya.Filename))
 
-			fileLocationlainnya = filepath.Join(dir, "uploads/layanan/lainnya", filenamelainnya)
+			fileLocationlainnya = filepath.Join(dir, "uploads/pbi", filenamelainnya)
 			targetFilelainnya, err := os.OpenFile(fileLocationlainnya, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -234,7 +234,7 @@ func PostLayananPbi(c echo.Context) error {
 			newfilenamektp := helpers.GenerateFilename("KTP" + *result.Nik)
 			filenamektp = fmt.Sprintf("%s%s", newfilenamektp, filepath.Ext(filektp.Filename))
 
-			fileLocationktp = filepath.Join(dir, "uploads/layanan/ktp", filenamektp)
+			fileLocationktp = filepath.Join(dir, "uploads/pbi", filenamektp)
 			targetFilektp, err := os.OpenFile(fileLocationktp, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -263,7 +263,7 @@ func PostLayananPbi(c echo.Context) error {
 			newfilenamekk := helpers.GenerateFilename("KK" + *result.Nik)
 			filenamekk = fmt.Sprintf("%s%s", newfilenamekk, filepath.Ext(filekk.Filename))
 
-			fileLocationkk = filepath.Join(dir, "uploads/layanan/kk", filenamekk)
+			fileLocationkk = filepath.Join(dir, "uploads/pbi", filenamekk)
 			targetFilekk, err := os.OpenFile(fileLocationkk, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -292,7 +292,7 @@ func PostLayananPbi(c echo.Context) error {
 			newfilenamefotorumah := helpers.GenerateFilename("FOTORUMAH-" + *result.Nik)
 			filenamefotorumah = fmt.Sprintf("%s%s", newfilenamefotorumah, filepath.Ext(filefotorumah.Filename))
 
-			fileLocationfotorumah = filepath.Join(dir, "uploads/layanan/fotorumah", filenamefotorumah)
+			fileLocationfotorumah = filepath.Join(dir, "uploads/pbi", filenamefotorumah)
 			targetFilefotorumah, err := os.OpenFile(fileLocationfotorumah, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -321,7 +321,7 @@ func PostLayananPbi(c echo.Context) error {
 			newfilenamesktm := helpers.GenerateFilename("SKTM-" + *result.Nik)
 			filenamesktm = fmt.Sprintf("%s%s", newfilenamesktm, filepath.Ext(filesktm.Filename))
 
-			fileLocationsktm = filepath.Join(dir, "uploads/layanan/sktm", filenamesktm)
+			fileLocationsktm = filepath.Join(dir, "uploads/pbi", filenamesktm)
 			targetFilesktm, err := os.OpenFile(fileLocationsktm, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -588,7 +588,7 @@ func PostLayananLks(c echo.Context) error {
 			newfilenamelainnya := helpers.GenerateFilename("LAINNYA" + *result.Nik)
 			filenamelainnya = fmt.Sprintf("%s%s", newfilenamelainnya, filepath.Ext(filelainnya.Filename))
 
-			fileLocationlainnya = filepath.Join(dir, "uploads/layanan/lainnya", filenamelainnya)
+			fileLocationlainnya = filepath.Join(dir, "uploads/lks", filenamelainnya)
 			targetFilelainnya, err := os.OpenFile(fileLocationlainnya, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -617,7 +617,7 @@ func PostLayananLks(c echo.Context) error {
 			newfilenamektp := helpers.GenerateFilename("KTP" + *result.Nik)
 			filenamektp = fmt.Sprintf("%s%s", newfilenamektp, filepath.Ext(filektp.Filename))
 
-			fileLocationktp = filepath.Join(dir, "uploads/layanan/ktp", filenamektp)
+			fileLocationktp = filepath.Join(dir, "uploads/lks", filenamektp)
 			targetFilektp, err := os.OpenFile(fileLocationktp, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -646,7 +646,7 @@ func PostLayananLks(c echo.Context) error {
 			newfilenamekk := helpers.GenerateFilename("KK" + *result.Nik)
 			filenamekk = fmt.Sprintf("%s%s", newfilenamekk, filepath.Ext(filekk.Filename))
 
-			fileLocationkk = filepath.Join(dir, "uploads/layanan/kk", filenamekk)
+			fileLocationkk = filepath.Join(dir, "uploads/lks", filenamekk)
 			targetFilekk, err := os.OpenFile(fileLocationkk, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -675,7 +675,7 @@ func PostLayananLks(c echo.Context) error {
 			newfilenamefotorumah := helpers.GenerateFilename("FOTORUMAH-" + *result.Nik)
 			filenamefotorumah = fmt.Sprintf("%s%s", newfilenamefotorumah, filepath.Ext(filefotorumah.Filename))
 
-			fileLocationfotorumah = filepath.Join(dir, "uploads/layanan/fotorumah", filenamefotorumah)
+			fileLocationfotorumah = filepath.Join(dir, "uploads/lks", filenamefotorumah)
 			targetFilefotorumah, err := os.OpenFile(fileLocationfotorumah, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -704,7 +704,7 @@ func PostLayananLks(c echo.Context) error {
 			newfilenamesktm := helpers.GenerateFilename("SKTM-" + *result.Nik)
 			filenamesktm = fmt.Sprintf("%s%s", newfilenamesktm, filepath.Ext(filesktm.Filename))
 
-			fileLocationsktm = filepath.Join(dir, "uploads/layanan/sktm", filenamesktm)
+			fileLocationsktm = filepath.Join(dir, "uploads/lks", filenamesktm)
 			targetFilesktm, err := os.OpenFile(fileLocationsktm, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1013,7 +1013,7 @@ func PostLayananSktm(c echo.Context) error {
 			newfilenamelainnya := helpers.GenerateFilename("LAINNYA" + *result.Nik)
 			filenamelainnya = fmt.Sprintf("%s%s", newfilenamelainnya, filepath.Ext(filelainnya.Filename))
 
-			fileLocationlainnya = filepath.Join(dir, "uploads/layanan/lainnya", filenamelainnya)
+			fileLocationlainnya = filepath.Join(dir, "uploads/sktm", filenamelainnya)
 			targetFilelainnya, err := os.OpenFile(fileLocationlainnya, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1042,7 +1042,7 @@ func PostLayananSktm(c echo.Context) error {
 			newfilenamektp := helpers.GenerateFilename("KTP" + *result.Nik)
 			filenamektp = fmt.Sprintf("%s%s", newfilenamektp, filepath.Ext(filektp.Filename))
 
-			fileLocationktp = filepath.Join(dir, "uploads/layanan/ktp", filenamektp)
+			fileLocationktp = filepath.Join(dir, "uploads/sktm", filenamektp)
 			targetFilektp, err := os.OpenFile(fileLocationktp, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1071,7 +1071,7 @@ func PostLayananSktm(c echo.Context) error {
 			newfilenamekk := helpers.GenerateFilename("KK" + *result.Nik)
 			filenamekk = fmt.Sprintf("%s%s", newfilenamekk, filepath.Ext(filekk.Filename))
 
-			fileLocationkk = filepath.Join(dir, "uploads/layanan/kk", filenamekk)
+			fileLocationkk = filepath.Join(dir, "uploads/sktm", filenamekk)
 			targetFilekk, err := os.OpenFile(fileLocationkk, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1100,7 +1100,7 @@ func PostLayananSktm(c echo.Context) error {
 			newfilenamefotorumah := helpers.GenerateFilename("FOTORUMAH-" + *result.Nik)
 			filenamefotorumah = fmt.Sprintf("%s%s", newfilenamefotorumah, filepath.Ext(filefotorumah.Filename))
 
-			fileLocationfotorumah = filepath.Join(dir, "uploads/layanan/fotorumah", filenamefotorumah)
+			fileLocationfotorumah = filepath.Join(dir, "uploads/sktm", filenamefotorumah)
 			targetFilefotorumah, err := os.OpenFile(fileLocationfotorumah, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1129,7 +1129,7 @@ func PostLayananSktm(c echo.Context) error {
 			newfilenamepernyataan := helpers.GenerateFilename("PERNYATAAN-" + *result.Nik)
 			filenamepernyataan = fmt.Sprintf("%s%s", newfilenamepernyataan, filepath.Ext(filepernyataan.Filename))
 
-			fileLocationpernyataan = filepath.Join(dir, "uploads/layanan/pernyataan", filenamepernyataan)
+			fileLocationpernyataan = filepath.Join(dir, "uploads/sktm", filenamepernyataan)
 			targetFilepernyataan, err := os.OpenFile(fileLocationpernyataan, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1376,7 +1376,7 @@ func PostLayananDtks(c echo.Context) error {
 			newfilenamelainnya := helpers.GenerateFilename("LAINNYA" + *result.Nik)
 			filenamelainnya = fmt.Sprintf("%s%s", newfilenamelainnya, filepath.Ext(filelainnya.Filename))
 
-			fileLocationlainnya = filepath.Join(dir, "uploads/layanan/lainnya", filenamelainnya)
+			fileLocationlainnya = filepath.Join(dir, "uploads/dtks", filenamelainnya)
 			targetFilelainnya, err := os.OpenFile(fileLocationlainnya, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1405,7 +1405,7 @@ func PostLayananDtks(c echo.Context) error {
 			newfilenamektp := helpers.GenerateFilename("KTP" + *result.Nik)
 			filenamektp = fmt.Sprintf("%s%s", newfilenamektp, filepath.Ext(filektp.Filename))
 
-			fileLocationktp = filepath.Join(dir, "uploads/layanan/ktp", filenamektp)
+			fileLocationktp = filepath.Join(dir, "uploads/dtks", filenamektp)
 			targetFilektp, err := os.OpenFile(fileLocationktp, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1434,7 +1434,7 @@ func PostLayananDtks(c echo.Context) error {
 			newfilenamekk := helpers.GenerateFilename("KK" + *result.Nik)
 			filenamekk = fmt.Sprintf("%s%s", newfilenamekk, filepath.Ext(filekk.Filename))
 
-			fileLocationkk = filepath.Join(dir, "uploads/layanan/kk", filenamekk)
+			fileLocationkk = filepath.Join(dir, "uploads/dtks", filenamekk)
 			targetFilekk, err := os.OpenFile(fileLocationkk, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
@@ -1463,7 +1463,7 @@ func PostLayananDtks(c echo.Context) error {
 			newfilenamefotorumah := helpers.GenerateFilename("FOTORUMAH-" + *result.Nik)
 			filenamefotorumah = fmt.Sprintf("%s%s", newfilenamefotorumah, filepath.Ext(filefotorumah.Filename))
 
-			fileLocationfotorumah = filepath.Join(dir, "uploads/layanan/fotorumah", filenamefotorumah)
+			fileLocationfotorumah = filepath.Join(dir, "uploads/dtks", filenamefotorumah)
 			targetFilefotorumah, err := os.OpenFile(fileLocationfotorumah, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				fmt.Println(err.Error())
