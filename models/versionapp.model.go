@@ -4,6 +4,7 @@ import (
 	"api-dinsos/db"
 	"database/sql"
 	"errors"
+	"log"
 )
 
 type Versionapp struct {
@@ -37,7 +38,7 @@ func GetVersionApp() (Response, error) {
 	}
 
 	if err != nil {
-		// fmt.Println("Query error")
+		log.Println(err.Error())
 		return res, errors.New("gagal mengambil version app")
 	}
 	res.Status = 200

@@ -62,7 +62,7 @@ func PostDtks(userId, kode_permohonan, kelurahan, ttd, nik, nama, jenis, layanan
 	return res, errors.New("Gagal menyimpan permohonan.")
 }
 
-func PostSktm(userId, kode_permohonan, kelurahan, ttd, nik, nama, jenis, layanan, status_permohonan, created_at, filektp, filekk, filefotorumah, filelainnya string) (Response, error) {
+func PostSktm(userId, kode_permohonan, kelurahan, ttd, nik, nama, jenis, layanan, status_permohonan, created_at, filektp, filekk, filefotorumah, filelainnya, filepernyataan string) (Response, error) {
 
 	var res Response
 
@@ -75,6 +75,7 @@ func PostSktm(userId, kode_permohonan, kelurahan, ttd, nik, nama, jenis, layanan
 	var filenameKtp *string
 	var filenameKk *string
 	var filenameFotorumah *string
+	var filenamePernyataan *string
 	if filelainnya != "" {
 		filenameLainnya = &filelainnya
 	}
@@ -87,10 +88,13 @@ func PostSktm(userId, kode_permohonan, kelurahan, ttd, nik, nama, jenis, layanan
 	if filefotorumah != "" {
 		filenameFotorumah = &filefotorumah
 	}
+	if filepernyataan != "" {
+		filenamePernyataan = &filepernyataan
+	}
 
-	sqlStatementDaftar := "INSERT INTO _permohonan_temp(id,kode_permohonan,kelurahan,ttd,nik,nama,user_id,jenis,layanan,status_permohonan,created_at,lampiran_ktp,lampiran_kk,lampiran_foto_rumah,lampiran_lainnya) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+	sqlStatementDaftar := "INSERT INTO _permohonan_temp(id,kode_permohonan,kelurahan,ttd,nik,nama,user_id,jenis,layanan,status_permohonan,created_at,lampiran_ktp,lampiran_kk,lampiran_foto_rumah,lampiran_lainnya,lampiran_pernyataan) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
 
-	exeInsertDaftar, err := tx.Exec(sqlStatementDaftar, uuid, kode_permohonan, kelurahan, ttd, nik, nama, userId, jenis, layanan, status_permohonan, created_at, filenameKtp, filenameKk, filenameFotorumah, filenameLainnya)
+	exeInsertDaftar, err := tx.Exec(sqlStatementDaftar, uuid, kode_permohonan, kelurahan, ttd, nik, nama, userId, jenis, layanan, status_permohonan, created_at, filenameKtp, filenameKk, filenameFotorumah, filenameLainnya, filenamePernyataan)
 	if err != nil {
 		fmt.Println("Query error")
 		fmt.Println(err.Error())

@@ -408,6 +408,7 @@ func PostLayananSktm(c echo.Context) error {
 	var fileKtp int
 	var fileKk int
 	var fileFotorumah int
+	var filePernyataan int
 
 	// var keperluan string
 	// var keperluan_lain string
@@ -472,6 +473,14 @@ func PostLayananSktm(c echo.Context) error {
 
 	}
 
+	filepernyataan, err := c.FormFile("pernyataan")
+	if err != nil {
+		fmt.Println(err.Error())
+		filePernyataan = 1
+	} else {
+
+	}
+
 	if fileLain == 0 {
 		if string(filepath.Ext(filelainnya.Filename)) == ".jpg" ||
 			string(filepath.Ext(filelainnya.Filename)) == ".pdf" ||
@@ -524,6 +533,19 @@ func PostLayananSktm(c echo.Context) error {
 		}
 	}
 
+	if filePernyataan == 0 {
+		if string(filepath.Ext(filepernyataan.Filename)) == ".jpg" ||
+			string(filepath.Ext(filepernyataan.Filename)) == ".pdf" ||
+			string(filepath.Ext(filepernyataan.Filename)) == ".png" ||
+			string(filepath.Ext(filepernyataan.Filename)) == ".jpeg" {
+
+		} else {
+			return c.JSON(http.StatusOK,
+				models.Response{Status: 400, Message: "Type file lain tidak diizinkan"},
+			)
+		}
+	}
+
 	result, err := models.GetUserDetail(userId)
 	if err != nil {
 		return c.JSON(http.StatusOK,
@@ -543,7 +565,10 @@ func PostLayananSktm(c echo.Context) error {
 	filenamefotorumah := ""
 	var fileLocationfotorumah string
 
-	if fileFotorumah == 0 || fileKk == 0 || fileKtp == 0 || fileLain == 0 {
+	filenamepernyataan := ""
+	var fileLocationpernyataan string
+
+	if fileFotorumah == 0 || fileKk == 0 || fileKtp == 0 || fileLain == 0 || filePernyataan == 0 {
 		dir, err := os.Getwd()
 		if err != nil {
 			fmt.Println(err.Error())
@@ -667,6 +692,35 @@ func PostLayananSktm(c echo.Context) error {
 				)
 			}
 		}
+
+		if filePernyataan == 0 {
+			srcpernyataan, err := filepernyataan.Open()
+			if err != nil {
+				return err
+			}
+			defer srcpernyataan.Close()
+
+			newfilenamepernyataan := helpers.GenerateFilename("PERNYATAAN-" + *result.Nik)
+			filenamepernyataan = fmt.Sprintf("%s%s", newfilenamepernyataan, filepath.Ext(filepernyataan.Filename))
+
+			fileLocationpernyataan = filepath.Join(dir, "uploads/layanan/pernyataan", filenamepernyataan)
+			targetFilepernyataan, err := os.OpenFile(fileLocationpernyataan, os.O_WRONLY|os.O_CREATE, 0666)
+			if err != nil {
+				fmt.Println(err.Error())
+				return c.JSON(http.StatusOK,
+					models.Response{Status: 204, Message: "Kesalahan dalam mengupload file."},
+				)
+			}
+			defer targetFilepernyataan.Close()
+
+			// Copy
+			if _, err = io.Copy(targetFilepernyataan, srcpernyataan); err != nil {
+				fmt.Println(err.Error())
+				return c.JSON(http.StatusOK,
+					models.Response{Status: 204, Message: "Kesalahan dalam mengupload file."},
+				)
+			}
+		}
 	}
 
 	loca, _ := time.LoadLocation("Asia/Jakarta")
@@ -681,7 +735,7 @@ func PostLayananSktm(c echo.Context) error {
 		keperluan_fix = keperluan
 	}
 
-	if _, err := models.PostSktm(userId, kode_permohonan, *result.Kelurahan, "kakam", *result.Nik, *result.Fullname, keperluan_fix, "SKTM", "0", currentTime.Format("2006-01-02 15:04:05"), filenamektp, filenamekk, filenamefotorumah, filenamelainnya); err != nil {
+	if _, err := models.PostSktm(userId, kode_permohonan, *result.Kelurahan, "kakam", *result.Nik, *result.Fullname, keperluan_fix, "SKTM", "0", currentTime.Format("2006-01-02 15:04:05"), filenamektp, filenamekk, filenamefotorumah, filenamelainnya, filenamepernyataan); err != nil {
 		if filenamelainnya != "" {
 			el := os.Remove(fileLocationlainnya)
 			if el != nil {

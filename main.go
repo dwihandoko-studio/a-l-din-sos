@@ -13,7 +13,7 @@ func main() {
 
 	if portApp == "" {
 		portApp = "1990"
-		// err := godotenv.Load("local.env")
+		// err := godotenv.Load()
 		// if err != nil {
 		// 	panic("connectionStringGorm error..." + err.Error())
 		// }
