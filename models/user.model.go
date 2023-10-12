@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -343,7 +344,7 @@ func GetUserDetail(id string) (Userprofil, error) {
 
 	if err != nil {
 		// fmt.Println("Query error")
-		// fmt.Println(err.Error())
+		log.Println(err.Error())
 		return obj, errors.New("gagal mengambil data")
 	}
 
