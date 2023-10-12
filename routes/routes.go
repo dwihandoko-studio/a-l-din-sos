@@ -25,7 +25,7 @@ func Init() *echo.Echo {
 		AllowMethods: []string{"GET", "POST", "OPTIONS", "PUT", "DELETE"},
 	}))
 
-	e.Static("/", "uploads")
+	e.Static("/files", "uploads")
 
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, Bagaimana Kabar Anda!")
@@ -55,8 +55,14 @@ func Init() *echo.Echo {
 	e.POST("/users", controllers.GetUsers, middleware.IsAuthenticated)
 	e.GET("/versionapp", controllers.GetVersionApp)
 	e.POST("/changepassword", controllers.PostChangePassword, middleware.IsAuthenticated)
+	e.POST("/changefoto", controllers.EditFotoUser, middleware.IsAuthenticated)
 
 	e.POST("/layanan/dtks", controllers.PostLayananDtks, middleware.IsAuthenticated)
+	e.POST("/layanan/sktm", controllers.PostLayananSktm, middleware.IsAuthenticated)
+	e.POST("/layanan/pbi", controllers.PostLayananPbi, middleware.IsAuthenticated)
+	e.POST("/layanan/lks", controllers.PostLayananLks, middleware.IsAuthenticated)
+
+	e.POST("/pengaduan", controllers.PostPengaduan, middleware.IsAuthenticated)
 
 	e.POST("/user", controllers.PostUser, middleware.IsAuthenticated)
 

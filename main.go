@@ -5,6 +5,8 @@ import (
 	"api-dinsos/db"
 	"api-dinsos/routes"
 	"os"
+
+	"github.com/joho/godotenv"
 	// "github.com/joho/godotenv"
 )
 
@@ -13,10 +15,10 @@ func main() {
 
 	if portApp == "" {
 		portApp = "1990"
-		// err := godotenv.Load()
-		// if err != nil {
-		// 	panic("connectionStringGorm error..." + err.Error())
-		// }
+		err := godotenv.Load()
+		if err != nil {
+			panic("connectionStringGorm error..." + err.Error())
+		}
 	}
 
 	db.Init()

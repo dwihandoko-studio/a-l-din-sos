@@ -328,7 +328,7 @@ func EditFotoUser(c echo.Context) error {
 			)
 		}
 
-		models.InsertAktifitas("Mengubah profil", "Update Foto Profil", "update", id)
+		// models.InsertAktifitas("Mengubah profil", "Update Foto Profil", "update", id)
 		// if err != nil {
 		// 	fmt.Println(err.Error())
 		// 	fmt.Println(errs)

@@ -15,10 +15,10 @@ type Versionapp struct {
 	Build_number_app *string `json:"build_number_app"`
 	Url_playstore    *string `json:"url_playstore"`
 	Url_appstore     *string `json:"url_appstore"`
-	Url_windows      *string `json:"url_windows"`
-	Is_active        int     `json:"is_active"`
-	Created_at       *string `json:"created_at"`
-	Updated_at       *string `json:"updated_at"`
+	// Url_windows      *string `json:"url_windows"`
+	Is_active  int64   `json:"is_active"`
+	Created_at *string `json:"created_at"`
+	Updated_at *string `json:"updated_at"`
 }
 
 func GetVersionApp() (Response, error) {
@@ -26,10 +26,20 @@ func GetVersionApp() (Response, error) {
 	var obj Versionapp
 	con := db.CreateCon()
 
-	sqlStatement := "SELECT * From _version_app_tb WHERE is_active = 1 ORDER BY updated_at DESC"
+	sqlStatement := "SELECT id, app_name, package_name, version_app, build_number_app, url_playstore, url_appstore, is_active, created_at, updated_at From _version_app_tb WHERE is_active = 1 ORDER BY updated_at DESC"
 
 	err := con.QueryRow(sqlStatement).Scan(
-		&obj.Id, &obj.App_name, &obj.Package_name, &obj.Version_app, &obj.Build_number_app, &obj.Url_playstore, &obj.Url_appstore, &obj.Url_windows, &obj.Is_active, &obj.Created_at, &obj.Updated_at,
+		&obj.Id,
+		&obj.App_name,
+		&obj.Package_name,
+		&obj.Version_app,
+		&obj.Build_number_app,
+		&obj.Url_playstore,
+		&obj.Url_appstore,
+		// &obj.Url_windows,
+		&obj.Is_active,
+		&obj.Created_at,
+		&obj.Updated_at,
 	)
 
 	if err == sql.ErrNoRows {
