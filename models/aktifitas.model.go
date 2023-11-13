@@ -21,17 +21,17 @@ type Aktifitas struct {
 	// No_hp      *string `json:"no_hp"`
 }
 
-type DafAktifitasPeserta struct {
+type DafAktifitas struct {
 	Data      []Aktifitas `json:"data"`
 	Total     int         `json:"total"`
 	Page      int         `json:"page"`
 	Last_page int         `json:"last_page"`
 }
 
-func GetAktifitas(queryString string, pageInitial string) (DafAktifitasPeserta, error) {
+func GetAktifitas(queryString string, pageInitial string) (DafAktifitas, error) {
 	var obj Aktifitas
 	var arryobj []Aktifitas
-	var result DafAktifitasPeserta
+	var result DafAktifitas
 	// var query string
 	perPage := 10
 	var total int

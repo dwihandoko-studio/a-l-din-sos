@@ -66,6 +66,9 @@ func Init() *echo.Echo {
 
 	e.POST("/user", controllers.PostUser, middleware.IsAuthenticated)
 
+	e.GET("/riwayatpermohonan", controllers.GetRiwayatLayanan, middleware.IsAuthenticated)
+	e.GET("/riwayatpermohonan/:id/:layanan/:status", controllers.GetDetailRiwayatLayanan, middleware.IsAuthenticated)
+
 	// e.POST("/daftar", controllers.CheckDataSiswa)
 
 	// r := e.Group("/provinsi")

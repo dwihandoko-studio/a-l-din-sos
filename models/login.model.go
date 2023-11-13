@@ -6,6 +6,7 @@ import (
 	"api-dinsos/services"
 	"database/sql"
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -60,11 +61,11 @@ func CheckLogin(username, password string) (Response, error) {
 
 	match, err := helpers.CheckPasswordHash(password, *pwd)
 	if err != nil {
-		// fmt.Println(err)
+		fmt.Println(err)
 		return res, errors.New("username / password salah")
 	}
 	if !match {
-		// fmt.Println("Hash and password doesn't match.")
+		fmt.Println("Hash and password doesn't match.")
 		// fmt.Println(err)
 		return res, errors.New("username / password salah")
 	}
