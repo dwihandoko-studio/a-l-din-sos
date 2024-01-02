@@ -69,6 +69,11 @@ func Init() *echo.Echo {
 	e.GET("/riwayatpermohonan", controllers.GetRiwayatLayanan, middleware.IsAuthenticated)
 	e.GET("/riwayatpermohonan/:id/:layanan/:status", controllers.GetDetailRiwayatLayanan, middleware.IsAuthenticated)
 
+	e.GET("/riwayataktifitas", controllers.GetAktifitas, middleware.IsAuthenticated)
+
+	e.GET("/riwayatpengaduan", controllers.GetRiwayatPengaduan, middleware.IsAuthenticated)
+	e.GET("/riwayatpengaduan/:id/:status", controllers.GetDetailRiwayatPengaduan, middleware.IsAuthenticated)
+
 	// e.POST("/daftar", controllers.CheckDataSiswa)
 
 	// r := e.Group("/provinsi")

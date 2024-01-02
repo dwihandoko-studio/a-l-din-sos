@@ -9,12 +9,13 @@ import (
 )
 
 type Aktifitas struct {
-	Id         *string `json:"id"`
-	User_id    *string `json:"user_id"`
-	Keterangan *string `json:"keterangan"`
-	Aksi       *string `json:"aksi"`
-	Icon       *string `json:"icon"`
-	Created_at *string `json:"created_at"`
+	Id            *string `json:"id"`
+	User_id       *string `json:"user_id"`
+	Keterangan    *string `json:"keterangan"`
+	Aksi          *string `json:"aksi"`
+	Icon          *string `json:"icon"`
+	Id_permohonan *string `json:"id_permohonan"`
+	Created_at    *string `json:"created_at"`
 	// Fullname   *string `json:"fullname"`
 	// Nisn       *string `json:"nisn"`
 	// Email      *string `json:"email"`
@@ -38,7 +39,7 @@ func GetAktifitas(queryString string, pageInitial string) (DafAktifitas, error) 
 	page, _ := strconv.Atoi(pageInitial)
 
 	con := db.CreateCon()
-	jumDat, err := con.Query("SELECT COUNT(*) as total FROM v_tb_riwayat_system_peserta " + queryString)
+	jumDat, err := con.Query("SELECT COUNT(*) as total FROM v_riwayat_aktifitas " + queryString)
 	if err != nil {
 		// fmt.Println("Error line jumlah: " + err.Error())
 		return result, errors.New("gagal memuat data")
@@ -48,7 +49,7 @@ func GetAktifitas(queryString string, pageInitial string) (DafAktifitas, error) 
 		jumDat.Scan(&total)
 	}
 
-	queryString = "SELECT * FROM v_tb_riwayat_system_peserta " + queryString + " ORDER BY created_at DESC"
+	queryString = "SELECT * FROM v_riwayat_aktifitas " + queryString + " ORDER BY created_at DESC"
 	queryString = fmt.Sprintf("%s LIMIT %d OFFSET %d", queryString, perPage, (page-1)*perPage)
 
 	respo, err := con.Query(queryString)
@@ -65,6 +66,7 @@ func GetAktifitas(queryString string, pageInitial string) (DafAktifitas, error) 
 			&obj.Keterangan,
 			&obj.Aksi,
 			&obj.Icon,
+			&obj.Id_permohonan,
 			&obj.Created_at,
 			// &obj.Fullname,
 			// &obj.Nisn,
